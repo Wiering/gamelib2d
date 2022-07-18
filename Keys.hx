@@ -16,6 +16,8 @@ class Keys
 
 	public static function setKeyStatus (key: UInt, status: Bool)
 	{
+		//trace("setKeyStatus(" + key + ", " + status + ")");
+		
 		if (Std.int (key) < NUM_KEYS) 
 			keyStatus[key] = status;
 	}
@@ -27,6 +29,7 @@ class Keys
 			var result = keyStatus[key];
 			if (reset)
 				keyStatus[key] = false;
+			
 			return result;
 		}
 		else

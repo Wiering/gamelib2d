@@ -197,10 +197,19 @@ class G
 	{
 		var repeat: Bool = Keys.keyIsDown (event.keyCode);
 		
+		//trace("onKeyDown event: " + event.keyCode + " repeat: " + repeat);
+		
+		// workaround for strange bug: Enter key doesn't seem to fire onKeyUp
+		if (event.keyCode == 13)
+			repeat = false;
+		
 		for (obj in Obj)
 			if (obj.useKeyboard)
 				if ((!repeat) || obj.objFlags.allowKeyboardRepeat)
+				{
+					//trace(obj.objName);
 					obj.onKeyDown (event.keyCode);
+				}
 					
 		Keys.setKeyStatus (event.keyCode, true);
 	}

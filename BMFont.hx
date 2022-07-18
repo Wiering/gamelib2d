@@ -227,12 +227,12 @@ class BMFont
 					var r: Rectangle = new Rectangle (/* xpos + */ fdx + offsetX[index], /* ypos + */ fdy + offsetY[index], ww, hh);
 					var matrix: Matrix = new Matrix (1, 0, 0, 1, p.x, p.y);
 					
-#if js
-					bdTmp.copyPixels (abdImages[page[index]], new Rectangle (xp, yp, ww, hh), new Point (/* xpos + */ fdx + offsetX[index], /* ypos + */ fdy + offsetY[index]));
-#else
+//#if js
+//					bdTmp.copyPixels (abdImages[page[index]], new Rectangle (xp, yp, ww, hh), new Point (/* xpos + */ fdx + offsetX[index], /* ypos + */ fdy + offsetY[index]));
+//#else
 					bdTmp.draw (abdImages[page[index]], matrix, null, null,
 							new Rectangle (/* xpos + */ fdx + offsetX[index], /* ypos + */ fdy + offsetY[index], ww, hh), false);
-#end
+//#end
 					
 					fdx += signedShort (advanceX[index]);
 					if ((s + String.fromCharCode (13)).charCodeAt (i + 1) != 13)
